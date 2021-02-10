@@ -2,8 +2,6 @@
 
 ### Características
 
-* Sistema Blackbuster. * 
-
 Es una empresa que renta diversos productos.
 - Videos en cd.
 - Videojuegos en dvd.
