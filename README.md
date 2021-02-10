@@ -11,6 +11,6 @@ Blackbuster es una empresa que renta diversos productos.
 2. Además debemos controlar la renta y devolución de los productos.
 
 
-* Instrucciones de entrega:
+### Instrucciones de entrega:
 1. Realice un video donde se muestre, el diseño de clases que realizó y se vea el funcionamiento de su proyecto. Verifique que la calidad del video es suficiente para que se pueda ver el código del proyecto y la consola de ejecución.
 2. Suba el video 
