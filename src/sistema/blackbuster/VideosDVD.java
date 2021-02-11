@@ -9,6 +9,11 @@ package sistema.blackbuster;
  *
  * @author Javi
  */
-public class Rentas {
+public class VideosDVD extends Producto{
+    
+    
+    VideosDVD(String nombre, float precio){
+        super(nombre,precio);
+    }
     
 }
