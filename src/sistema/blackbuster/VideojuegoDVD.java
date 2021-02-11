@@ -12,8 +12,8 @@ package sistema.blackbuster;
 public class VideojuegoDVD extends Producto{
     private String plataforma;
     
-    VideojuegoDVD(String nombre, float precio,String plataforma){
-        super(nombre, precio);
+    VideojuegoDVD(String nombre, float precio,int unidades,String plataforma){
+        super(nombre, precio, unidades);
         this.plataforma = plataforma;
     }
 
