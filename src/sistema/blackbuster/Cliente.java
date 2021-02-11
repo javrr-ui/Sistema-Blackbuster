@@ -17,6 +17,7 @@ public class Cliente {
     private String nombre;
     private int cantidadProductosRentados=0;
     private ArrayList<Producto> productos=  new ArrayList<>();
+    private ArrayList<Renta> rentasCliente = new ArrayList<>();
     
     Cliente(){
         
@@ -58,7 +59,19 @@ public class Cliente {
 
     public void setProductos(Producto producto) {
         productos.add(producto);
-        productos.add(new VideojuegoDVD("juego XD", 299f, "Xbox"));
+        
+    }
+
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public void setRentasCliente(ArrayList<Renta> rentasCliente) {
+        this.rentasCliente = rentasCliente;
+    }
+
+    public ArrayList<Renta> getRentasCliente() {
+        return rentasCliente;
     }
 
     

@@ -10,19 +10,22 @@ package sistema.blackbuster;
  * @author Javi
  */
 public class Producto {
-    private int unidades;
     private String nombre;
+    private float precio;
+    private int unidades;
     private int id;
     private boolean disponible;
-    private float precio;
+    
     
     Producto(){
        
     }
     
-    Producto(String nombre, float precio){
+    Producto(String nombre, float precio, int unidades){
         this.nombre = nombre;
         this.precio = precio;
+        this.unidades = unidades;
+        
     }
 
    

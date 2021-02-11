@@ -32,21 +32,18 @@ public class SistemaBlackbuster {
           dbClientes.agregarCliente(new Cliente("Francisco"));
           dbClientes.agregarCliente(new Cliente("Armando"));
           dbClientes.agregarCliente(new Cliente("Sara"));
-          dbClientes.mostrarClientes();
+          //dbClientes.mostrarClientes();
           
           
           
-          //sisRentas.nuevaRenta(new Renta(LocalDate.now(), LocalDate.of(2021,2,21), cliente,new MusicaCD("MAna en vivo", 299f, 15, "rock")));
+          sisRentas.nuevaRenta(new Renta(LocalDate.now(), LocalDate.of(2021,2,21), dbClientes.getCliente(1),inventario.getProducto(1)));
           //sisRentas.nuevaRenta(new Renta(LocalDate.now(), LocalDate.of(2021,2,25), cliente,new MusicaCD("Zoe", 299f, 15, "rock")));
-          //sisRentas.consultaRentas();
+          sisRentas.consultaRentas();
           
-          
-          
-          inventario.agregarProducto(new VideojuegoDVD("GTA 3", 399.99f, "XBOX"));
-          inventario.agregarProducto(new VideojuegoDVD("God of War", 399.99f, "XBOX"));
-          inventario.agregarProducto(new VideojuegoDVD("Shrek 2", 299.99f, "Playstation"));
           SistemaBlackbuster sys = new SistemaBlackbuster();
-          sys.menuPrincipal();
+          //sys.menuPrincipal();
+          
+          //al llamar el metodo consultarProducto sin parametros, muestra todo el inventario
           inventario.consultarProducto();
 
     }

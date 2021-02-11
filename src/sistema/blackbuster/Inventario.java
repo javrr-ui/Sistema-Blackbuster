@@ -19,6 +19,13 @@ public class Inventario {
     Inventario(){
         contadorId = 0;
          inventario = new ArrayList<>();
+         
+         agregarProducto(new VideojuegoDVD("GTA 3", 399.99f,4, "XBOX"));
+         agregarProducto(new VideojuegoDVD("GTA 3", 399.99f,4, "XBOX"));
+         agregarProducto(new VideojuegoDVD("God of War", 399.99f,3, "XBOX"));
+         agregarProducto(new MusicaCD("One Direction best songs", 299f, 3,"One Direction", 15, "Pop"));
+         agregarProducto(new VideosDVD("Spiderman 3", 100, 4, "accion"));
+         
     }
     
     public void agregarProducto(Producto producto){
@@ -39,9 +46,19 @@ public class Inventario {
     public void consultarProducto(String nombre){
         
     }
-    public void consultarProducto(int id){
+    public  void consultarProducto(int id){
         
     }
+    
+    public Producto getProducto(int id){
+        for(Producto i: inventario){
+            if(i.getId()==id){
+                return i;
+            }
+        }
+        return null;
+    }
+    
     
     public void consultarProducto(){
         inventario.forEach((producto) -> System.out.println(producto) );
