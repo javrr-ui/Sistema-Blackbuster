@@ -50,6 +50,7 @@ public class Inventario {
         
     }
     
+    
     public Producto getProducto(int id){
         for(Producto i: inventario){
             if(i.getId()==id){

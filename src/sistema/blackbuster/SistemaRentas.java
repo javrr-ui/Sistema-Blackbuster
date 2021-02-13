@@ -22,12 +22,13 @@ public class SistemaRentas {
     }
     
     public void nuevaRenta(Renta renta){
+            
         rentas.add(renta);
     }
     
     public void consultaRentas(){
         for(Renta renta: rentas){
-            System.out.println(renta.toString());
+            System.out.println(renta);
         }
     }
     

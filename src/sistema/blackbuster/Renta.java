@@ -26,7 +26,7 @@ public class Renta {
         this.fechaDevolucion = fechaDevolucion;
         this.cliente = cliente;
         productos.add(producto);
-        
+        cliente.setProductos(producto);
         
     }
 

@@ -20,14 +20,15 @@ public class Cliente {
     private ArrayList<Renta> rentasCliente = new ArrayList<>();
     
     Cliente(){
-        
-    }
+       
+   }
     
     Cliente(String nombre){
         this.nombre = nombre;
         
     }
-
+   
+   
     public int getId() {
         return id;
     }
@@ -42,7 +43,8 @@ public class Cliente {
     }
 
     public int getCantidadProductosRentados() {
-        return cantidadProductosRentados;
+        
+        return productos.size();
     }
 
     public void setNombre(String nombre) {

@@ -170,7 +170,7 @@ public class SistemaBlackbuster {
             System.out.println(dbClientes.getCliente(opc));
             System.out.print("¿Este es el cliente que quieres eliminar si/no: ");
             String op = scan.nextLine();
-            if ("si".equals(op.toLowerCase())) {
+            if ("si".equalsIgnoreCase(op)) {
                 System.out.print("Ingrese el nuevo nombre: ");
                 op = scan.nextLine();
                 Cliente refCliente = dbClientes.getCliente(opc);
@@ -198,7 +198,7 @@ public class SistemaBlackbuster {
             System.out.print("¿Este es el cliente que quieres editar? si/no: ");
             String op = scan.nextLine();
             System.out.print("op="+op);
-            if ("si".equals(op.toLowerCase())) {
+            if ("si".equalsIgnoreCase(op)) {
                 System.out.print("Ingrese el nuevo nombre: ");
                 op = scan.nextLine();
                 Cliente refCliente = dbClientes.getCliente(opc);

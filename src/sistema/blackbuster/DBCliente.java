@@ -12,36 +12,34 @@ import java.util.ArrayList;
  * @author Javi
  */
 public class DBCliente {
-    
-    private int contadorIdCliente=0;
-    private ArrayList<Cliente> clientes = new ArrayList<>();
-    
-   DBCliente(){
-       
-   }
 
+    private int contadorIdCliente;
+    private ArrayList<Cliente> clientes;
+
+    DBCliente() {
+        contadorIdCliente = 0;
+        clientes = new ArrayList<>();
+    }
+
+    //Recibe un id y busca un cliente, si existe regresa el objeto cliente, si no existe regresa un null
     public Cliente getCliente(int id) {
-        for(Cliente i: clientes){
-            if(i.getId()==id){
-                return i;
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
+                return cliente;
             }
         }
         return null;
     }
-   
-   
-    
 
     public void agregarCliente(Cliente cliente) {
         //Agrega un id unico cuando agrega el cliente al ArrayList
-        contadorIdCliente +=1;
+        contadorIdCliente += 1;
         cliente.setId(contadorIdCliente);
         clientes.add(cliente);
     }
-    
-    public void mostrarClientes(){
-        clientes.forEach((cliente) -> System.out.println(cliente) );
+
+    public void mostrarClientes() {
+        clientes.forEach((cliente) -> System.out.println(cliente));
     }
-    
-    
+
 }
