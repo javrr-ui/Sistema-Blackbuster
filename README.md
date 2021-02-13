@@ -2,6 +2,8 @@
 
 ## Sistema Blockbuster para la materia de Algoritmos y estructuras de datos
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/57ced52c294c48da9b416cee0e93157c)](https://app.codacy.com/gh/javrr-ui/Sistema-Blackbuster?utm_source=github.com&utm_medium=referral&utm_content=javrr-ui/Sistema-Blackbuster&utm_campaign=Badge_Grade_Settings)
+
 ### Características
 
 Blackbuster es una empresa que renta diversos productos.
