@@ -1,5 +1,3 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4259a79771463ba402a85199f15494)](https://www.codacy.com/gh/javrr-ui/Sistema-Blackbuster/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=javrr-ui/Sistema-Blackbuster&amp;utm_campaign=Badge_Grade)
-
 ## Sistema Blockbuster para la materia de Algoritmos y estructuras de datos
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/57ced52c294c48da9b416cee0e93157c)](https://app.codacy.com/gh/javrr-ui/Sistema-Blackbuster?utm_source=github.com&utm_medium=referral&utm_content=javrr-ui/Sistema-Blackbuster&utm_campaign=Badge_Grade_Settings)
