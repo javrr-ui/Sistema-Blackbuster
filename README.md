@@ -5,9 +5,9 @@
 ### Características
 
 Blackbuster es una empresa que renta diversos productos.
-- Videos en cd.
-- Videojuegos en dvd.
-- Música.
+-   Videos en cd.
+-   Videojuegos en dvd.
+-   Música.
 
 1.  Hacer el ABC de los productos y clientes. 
 2.  Además debemos controlar la renta y devolución de los productos.
