@@ -175,7 +175,7 @@ public class SistemaBlackbuster {
                     precio = Float.parseFloat(scan.nextLine());
                     System.out.print("Ingrese la cantidad de unidades disponibles:");
                     unidades = Integer.parseInt(scan.nextLine());
-                    System.out.print("Ingrese la plataforma (xbox, playstation, nintendo):");
+                    System.out.print("Ingrese la plataforma (xbox, playstation, nintendo,pc):");
                     plataforma = scan.nextLine();
                     //Crea una instancia de un videojuego y lo agrega al inventario
                     nuevo = new VideojuegoDVD(nombre, precio, unidades, plataforma);
@@ -261,10 +261,10 @@ public class SistemaBlackbuster {
                     modificaVideojuegoDVD(opc);
                 }
                 if (inventario.getProducto(opc) instanceof MusicaCD) {
-                    modificaMusicaCD();
+                    modificaMusicaCD(opc);
                 }
                 if (inventario.getProducto(opc) instanceof VideoDVD) {
-                    modificaVideoDVD();
+                    modificaVideoDVD(opc);
                 }
             } else {
                 subMenuModificaProducto();
@@ -293,50 +293,196 @@ public class SistemaBlackbuster {
         String op;
         switch (opc) {
             case 1:
-                System.out.print("Ingrese el nuevo nombre: ");
-                op = scan.nextLine();
-                inventario.getProducto(id).setNombre(op);
-                System.out.println("Producto modificado: " + inventario.getProducto(id));
+                modificarNombre(id);
                 break;
             case 2:
-                float precio = 0;
-                System.out.print("Ingrese el nuevo precio: ");
-                try {
-                    precio = Float.parseFloat(scan.nextLine());
-                } catch (Exception e) {
-                    System.out.println("Dato invalido");
-                    modificaVideojuegoDVD(id);
-                    break;
-                }
-                inventario.getProducto(id).setPrecio(precio);
-                System.out.println("Producto modificado: " + inventario.getProducto(id));
+                modificarPrecio(id);
                 break;
             case 3:
-                System.out.print("Ingrese el nuevo numero de unidades: ");
-                try {
-                    opc = Integer.parseInt(scan.nextLine());
-                } catch (Exception e) {
-                    System.out.println("Dato invalido");
-                    modificaVideojuegoDVD(id);
-                    break;
-                }
-                inventario.getProducto(id).setUnidades(id);
-                System.out.println("Producto modificado: " + inventario.getProducto(id));
+                modificarUnidades(id);
                 break;
             case 4:
-                
+                modificarPlataforma(id);
+                break;
+            case 5:
+                modificarNombre(id);
+                modificarPrecio(id);
+                modificarUnidades(id);
+                modificarPlataforma(id);
+                break;
             default:
                 break;
 
         }
     }
 
-    public void modificaVideoDVD() {
+    public void modificaVideoDVD(int id) {
+        System.out.println("¿Que quiere modificar? ");
+        System.out.println("1. Nombre\n2. Precio\n3. Unidades\n4. Genero\n5. Todo");
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+        } catch (Exception e) {
+            System.out.println("Esa opcion no existe.");
+            modificaVideoDVD(id);
+        }
+        if (opc < 1 || opc > 5) {
+            System.out.println("Esa opcion no existe.");
+            modificaVideoDVD(id);
+        }
+        String op;
+        switch (opc) {
+            case 1:
+                modificarNombre(id);
+                break;
+            case 2:
+                modificarPrecio(id);
+                break;
+            case 3:
+                modificarUnidades(id);
+                break;
+            case 4:
+                modificarGenero(id);
+                break;
+            case 5:
+                modificarNombre(id);
+                modificarPrecio(id);
+                modificarUnidades(id);
+                modificarGenero(id);
+                break;
+            default:
+                break;
 
+        }
     }
 
-    public void modificaMusicaCD() {
+    public void modificaMusicaCD(int id) {
+        System.out.println("¿Que quiere modificar? ");
+        System.out.println("1. Nombre\n2. Precio\n3. Unidades\n4. Artista\n5. Numero de canciones\n6. Genero\n7. Todo");
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+        } catch (Exception e) {
+            System.out.println("Esa opcion no existe.");
+            modificaMusicaCD(id);
+        }
+        if (opc < 1 || opc > 7) {
+            System.out.println("Esa opcion no existe.");
+            modificaMusicaCD(id);
+        }
+        String op;
+        switch (opc) {
+            case 1:
+                modificarNombre(id);
+                break;
+            case 2:
+                modificarPrecio(id);
+                break;
+            case 3:
+                modificarUnidades(id);
+                break;
+            case 4:
+                modificarArtista(id);
+                break;
+            case 5:
+                modificarNumeroCanciones(id);
+                break;
+            case 6:
+                modificarGeneroMusica(id);
+                break;
+            case 7:
+                modificarNombre(id);
+                modificarPrecio(id);
+                modificarUnidades(id);
+                modificarArtista(id);
+                modificarNumeroCanciones(id);
+                modificarGeneroMusica(id);
+                break;
+            default:
+                break;
 
+        }
+    }
+
+    //funciones para modificar un atributo determinado
+    public void modificarNombre(int id) {
+        String op;
+        System.out.print("Ingrese el nuevo nombre: ");
+        op = scan.nextLine();
+        inventario.getProducto(id).setNombre(op);
+        System.out.println("Producto modificado: " + inventario.getProducto(id));
+    }
+
+    public void modificarPrecio(int id) {
+        float precio = 0;
+        System.out.print("Ingrese el nuevo precio: ");
+        try {
+            precio = Float.parseFloat(scan.nextLine());
+            inventario.getProducto(id).setPrecio(precio);
+            System.out.println("Producto modificado: " + inventario.getProducto(id));
+        } catch (Exception e) {
+            System.out.println("Dato invalido");
+            subMenuModificaProducto();
+        }
+    }
+
+    public void modificarUnidades(int id) {
+        System.out.print("Ingrese el nuevo numero de unidades: ");
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+            inventario.getProducto(id).setUnidades(id);
+            System.out.println("Producto modificado: " + inventario.getProducto(id));
+        } catch (Exception e) {
+            System.out.println("Dato invalido");
+            subMenuModificaProducto();
+        }
+    }
+
+    public void modificarPlataforma(int id) {
+        String op;
+        System.out.print("Ingrese la nueva plataforma: ");
+        op = scan.nextLine();
+
+        //Downcasting
+        ((VideojuegoDVD) inventario.getProducto(id)).setPlataforma(op);
+        System.out.println("Producto modificado: " + inventario.getProducto(id));
+    }
+
+    public void modificarGenero(int id) {
+        String op;
+        System.out.print("Ingrese el nuevo genero: ");
+        op = scan.nextLine();
+        //downcasting
+        ((VideoDVD) inventario.getProducto(id)).setGenero(op);
+        System.out.println("Producto modificado: " + inventario.getProducto(id));
+    }
+
+    public void modificarNumeroCanciones(int id) {
+        System.out.print("Ingrese el nuevo numero de canciones: ");
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+            ((MusicaCD) inventario.getProducto(id)).setNumeroDeCanciones(opc);
+            System.out.println("Producto modificado: " + inventario.getProducto(id));
+        } catch (Exception e) {
+            System.out.println("Dato invalido");
+            subMenuModificaProducto();
+        }
+    }
+
+    public void modificarGeneroMusica(int id) {
+        String op;
+        System.out.print("Ingrese el nuevo genero: ");
+        op = scan.nextLine();
+        //downcasting
+        ((MusicaCD) inventario.getProducto(id)).setGenero(op);
+        System.out.println("Producto modificado: " + inventario.getProducto(id));
+    }
+
+    public void modificarArtista(int id) {
+        String op;
+        System.out.print("Ingrese el nuevo artista: ");
+        op = scan.nextLine();
+        //downcasting
+        ((MusicaCD) inventario.getProducto(id)).setArtista(op);
+        System.out.println("Producto modificado: " + inventario.getProducto(id));
     }
 
     public void SubMenuConsultaProducto() {
@@ -447,19 +593,4 @@ public class SistemaBlackbuster {
 
     }
 
-    public void menuReutilizable(String menu, int maxOpc) {
-
-        do {
-            System.out.println(menu);
-            try {
-                opc = Integer.parseInt(scan.nextLine());
-            } catch (Exception e) {
-                // failure
-            }
-        } while (opc < 1 || opc > maxOpc);
-        switch (opc) {
-            case 1:
-                break;
-        }
-    }
 }
