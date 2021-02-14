@@ -7,37 +7,49 @@ package sistema.blackbuster;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
  * @author Javi
  */
 public class Renta {
+
     private LocalDate fechaRenta;
     private LocalDate fechaDevolucion;
     private int idCliente;
+    private int idRenta;
     private String nombreCliente;
     private ArrayList<Producto> productos = new ArrayList<>();
     private Cliente cliente;
-    
-    Renta(LocalDate fechaRenta, LocalDate fechaDevolucion, Cliente cliente,Producto producto){
+
+    Renta(LocalDate fechaRenta, LocalDate fechaDevolucion, Cliente cliente, Producto producto) {
         this.fechaRenta = fechaRenta;
         this.fechaDevolucion = fechaDevolucion;
         this.cliente = cliente;
         productos.add(producto);
         cliente.setProductos(producto);
-        
+
     }
 
     public int getIdCliente() {
         return idCliente;
     }
 
+    public int getIdRenta() {
+        return idRenta;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setIdRenta(int idRenta) {
+        this.idRenta = idRenta;
+    }
+
     public String getNombreCliente() {
         return nombreCliente;
     }
-    
 
     public LocalDate getFechaRenta() {
         return fechaRenta;
@@ -70,11 +82,8 @@ public class Renta {
     @Override
     public String toString() {
         //System.out.println(productos.toString());
-        
-        return "Renta{" + "fechaRenta=" + fechaRenta + ", fechaDevolucion=" + fechaDevolucion + ", idCliente=" + cliente.getId() +", Cliente="+ cliente.getNombre()+ ", productos="+ productos.toString() + '}';
-    }
-    
 
-    
-    
+        return "Renta{" + "fechaRenta=" + fechaRenta + ", fechaDevolucion=" + fechaDevolucion + ", idCliente=" + cliente.getId() + ", Cliente=" + cliente.getNombre() + ", productos=" + productos.toString() + '}';
+    }
+
 }

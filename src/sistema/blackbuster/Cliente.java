@@ -12,23 +12,22 @@ import java.util.ArrayList;
  * @author Javi
  */
 public class Cliente {
-    
+
     private int id;
     private String nombre;
-    private int cantidadProductosRentados=0;
-    private ArrayList<Producto> productos=  new ArrayList<>();
+    private int cantidadProductosRentados = 0;
+    private ArrayList<Producto> productos = new ArrayList<>();
     private ArrayList<Renta> rentasCliente = new ArrayList<>();
-    
-    Cliente(){
-       
-   }
-    
-    Cliente(String nombre){
-        this.nombre = nombre;
-        
+
+    Cliente() {
+
     }
-   
-   
+
+    Cliente(String nombre) {
+        this.nombre = nombre;
+
+    }
+
     public int getId() {
         return id;
     }
@@ -36,14 +35,13 @@ public class Cliente {
     public ArrayList<Producto> getProductos() {
         return productos;
     }
-    
 
     public String getNombre() {
         return nombre;
     }
 
     public int getCantidadProductosRentados() {
-        
+
         return productos.size();
     }
 
@@ -61,7 +59,7 @@ public class Cliente {
 
     public void setProductos(Producto producto) {
         productos.add(producto);
-        
+
     }
 
     public void setProductos(ArrayList<Producto> productos) {
@@ -76,13 +74,9 @@ public class Cliente {
         return rentasCliente;
     }
 
-    
-    
     @Override
     public String toString() {
         return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", cantidadProductosRentados=" + cantidadProductosRentados + '}';
     }
-    
-    
-    
+
 }

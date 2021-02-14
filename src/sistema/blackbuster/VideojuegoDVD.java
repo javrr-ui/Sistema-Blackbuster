@@ -9,19 +9,26 @@ package sistema.blackbuster;
  *
  * @author Javi
  */
-public class VideojuegoDVD extends Producto{
+public class VideojuegoDVD extends Producto {
+
     private String plataforma;
-    
-    VideojuegoDVD(String nombre, float precio,int unidades,String plataforma){
+
+    VideojuegoDVD(String nombre, float precio, int unidades, String plataforma) {
         super(nombre, precio, unidades);
         this.plataforma = plataforma;
     }
 
-    @Override
-     public String toString() {
-        return "Videojuego{" + "nombre=" + getNombre() + ", id=" + getId() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ", plataforma=" + plataforma+ '}';
+    public String getPlataforma() {
+        return plataforma;
     }
-    
-    
-    
+
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    @Override
+    public String toString() {
+        return "Videojuego{" + "nombre=" + getNombre() + ", id=" + getId() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ", plataforma=" + plataforma + '}';
+    }
+
 }
