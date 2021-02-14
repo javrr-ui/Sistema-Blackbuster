@@ -21,7 +21,7 @@ public class Inventario {
         inventario = new ArrayList<>();
 
         agregarProducto(new VideojuegoDVD("GTA 3", 399.99f, 4, "XBOX"));
-        agregarProducto(new VideojuegoDVD("GTA 3", 399.99f, 4, "XBOX"));
+        agregarProducto(new VideojuegoDVD("Smack down vs raw 2011", 399.99f, 4, "XBOX"));
         agregarProducto(new VideojuegoDVD("God of War", 399.99f, 3, "XBOX"));
         agregarProducto(new MusicaCD("One Direction best songs", 299f, 3, "One Direction", 15, "Pop"));
         agregarProducto(new VideoDVD("Spiderman 3", 100, 4, "accion"));
