@@ -216,6 +216,8 @@ public class SistemaBlackbuster {
                     inventario.agregarProducto(nuevo);
                     System.out.print("Agregaste el producto " + nuevo);
                     break;
+                default:
+                    break;
             }
         }
 
@@ -233,15 +235,8 @@ public class SistemaBlackbuster {
             System.out.print("¿Este es el producto que quieres eliminar si/no: ");
             String op = scan.nextLine();
             if ("si".equalsIgnoreCase(op)) {
-                if (inventario.getProducto(opc) instanceof VideojuegoDVD) {
-
-                }
-                if(inventario.getProducto(opc) instanceof MusicaCD){
-                    
-                } 
-                if(inventario.getProducto(opc) instanceof VideoDVD){
-                    
-                }
+                System.out.println("El producto " + inventario.getProducto(opc) + " ha sido eliminado");
+                inventario.eliminarProducto(opc);
             } else {
                 subMenuBajaProducto();
             }
@@ -251,13 +246,101 @@ public class SistemaBlackbuster {
     }
 
     public void subMenuModificaProducto() {
+        System.out.print("1. Ingresa el ID del producto que quieres editar: ");
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+        } catch (Exception e) {
+
+        }
+        if (inventario.getProducto(opc) != null) {
+            System.out.println(inventario.getProducto(opc));
+            System.out.print("¿Este es el producto que quieres modificar? si/no: ");
+            String op = scan.nextLine();
+            if ("si".equalsIgnoreCase(op)) {
+                if (inventario.getProducto(opc) instanceof VideojuegoDVD) {
+                    modificaVideojuegoDVD(opc);
+                }
+                if (inventario.getProducto(opc) instanceof MusicaCD) {
+                    modificaMusicaCD();
+                }
+                if (inventario.getProducto(opc) instanceof VideoDVD) {
+                    modificaVideoDVD();
+                }
+            } else {
+                subMenuModificaProducto();
+            }
+
+        } else {
+            System.out.println("No existe un producto con ese ID.");
+        }
+
+    }
+
+    public void modificaVideojuegoDVD(int id) {
+
+        System.out.println("¿Que quiere modificar? ");
+        System.out.println("1. Nombre\n2. Precio\n3. Unidades\n4. Plataforma\n5. Todo");
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+        } catch (Exception e) {
+            System.out.println("Esa opcion no existe.");
+            modificaVideojuegoDVD(id);
+        }
+        if (opc < 1 || opc > 5) {
+            System.out.println("Esa opcion no existe.");
+            modificaVideojuegoDVD(id);
+        }
+        String op;
+        switch (opc) {
+            case 1:
+                System.out.print("Ingrese el nuevo nombre: ");
+                op = scan.nextLine();
+                inventario.getProducto(id).setNombre(op);
+                System.out.println("Producto modificado: " + inventario.getProducto(id));
+                break;
+            case 2:
+                float precio = 0;
+                System.out.print("Ingrese el nuevo precio: ");
+                try {
+                    precio = Float.parseFloat(scan.nextLine());
+                } catch (Exception e) {
+                    System.out.println("Dato invalido");
+                    modificaVideojuegoDVD(id);
+                    break;
+                }
+                inventario.getProducto(id).setPrecio(precio);
+                System.out.println("Producto modificado: " + inventario.getProducto(id));
+                break;
+            case 3:
+                System.out.print("Ingrese el nuevo numero de unidades: ");
+                try {
+                    opc = Integer.parseInt(scan.nextLine());
+                } catch (Exception e) {
+                    System.out.println("Dato invalido");
+                    modificaVideojuegoDVD(id);
+                    break;
+                }
+                inventario.getProducto(id).setUnidades(id);
+                System.out.println("Producto modificado: " + inventario.getProducto(id));
+                break;
+            case 4:
+                
+            default:
+                break;
+
+        }
+    }
+
+    public void modificaVideoDVD() {
+
+    }
+
+    public void modificaMusicaCD() {
 
     }
 
     public void SubMenuConsultaProducto() {
-
         inventario.consultarProducto();
-
     }
 
     public void menuRentas() {
@@ -292,10 +375,7 @@ public class SistemaBlackbuster {
             System.out.print("¿Este es el cliente que quieres eliminar si/no: ");
             String op = scan.nextLine();
             if ("si".equalsIgnoreCase(op)) {
-                System.out.print("Ingrese el nuevo nombre: ");
-                op = scan.nextLine();
-                Cliente refCliente = dbClientes.getCliente(opc);
-                refCliente.setNombre(op);
+                dbClientes.eliminarCliente(opc);
             } else {
                 subMenuBajaCliente();
             }

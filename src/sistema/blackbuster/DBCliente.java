@@ -38,6 +38,14 @@ public class DBCliente {
         clientes.add(cliente);
     }
 
+    public void eliminarCliente(int id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
+                clientes.remove(id);
+            }
+        }
+    }
+
     public void mostrarClientes() {
         clientes.forEach((cliente) -> System.out.println(cliente));
     }
