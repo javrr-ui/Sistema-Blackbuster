@@ -28,7 +28,7 @@ public class VideoDVD extends Producto {
 
     @Override
     public String toString() {
-        return "VideosDVD{" + "nombre=" + getNombre() + ", id=" + getId() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ",unidades=" + getUnidades() + ", genero=" + genero + '}';
+        return "VideosDVD{" + "nombre=" + getNombre() + ", id=" + getId() + ", unidades=" + getUnidades() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ", genero=" + genero + '}';
     }
 
 }

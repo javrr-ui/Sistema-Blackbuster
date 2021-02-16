@@ -48,7 +48,7 @@ public class MusicaCD extends Producto {
 
     @Override
     public String toString() {
-        return "MusicaCD{" + "Album=" + getNombre() + ", id=" + getId() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ", Artista=" + artista + ", numeroDeCanciones=" + numeroDeCanciones + ", genero=" + genero + '}';
+        return "MusicaCD{" + "Album=" + getNombre() + ", id=" + getId() + ", unidades=" + getUnidades() + ", precio=" + getPrecio() + ", Artista=" + artista + ", numeroDeCanciones=" + numeroDeCanciones + ", genero=" + genero + '}';
     }
 
 }

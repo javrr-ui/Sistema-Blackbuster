@@ -28,7 +28,7 @@ public class VideojuegoDVD extends Producto {
 
     @Override
     public String toString() {
-        return "Videojuego{" + "nombre=" + getNombre() + ", id=" + getId() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ", plataforma=" + plataforma + '}';
+        return "Videojuego{" + "nombre=" + getNombre() + ", id=" + getId() +", unidades=" + getUnidades() + ", disponible=" + getDisponible() + ", precio=" + getPrecio() + ", plataforma=" + plataforma + '}';
     }
 
 }
