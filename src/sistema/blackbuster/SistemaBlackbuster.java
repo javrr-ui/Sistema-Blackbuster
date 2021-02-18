@@ -490,8 +490,116 @@ public class SistemaBlackbuster {
     }
 
     public void menuRentas() {
+        int clienteId;
+        int productoId;
+        LocalDate fecha = LocalDate.now();
+        LocalDate fechaEntrega = fecha;
+
         System.out.println("1. Nueva renta");
         System.out.println("2. Devolución");
+        System.out.println("3. Consulta rentas activas");
+        System.out.println("4. Salir");
+
+        try {
+            opc = Integer.parseInt(scan.nextLine());
+
+        } catch (Exception e) {
+            System.out.println("Dato invalido");
+        }
+        switch (opc) {
+            case 1:
+                System.out.println("NUEVA RENTA");
+                System.out.print("Ingrese el id del cliente: ");
+                try {
+                    //scan.nextLine();
+                    opc = Integer.parseInt(scan.nextLine());
+                    clienteId = opc;
+                } catch (Exception e) {
+                    System.out.println("Dato invalido");
+                    break;
+                }
+                if (dbClientes.getCliente(opc) != null) {
+                    System.out.println("¿Que producto desea rentar " + dbClientes.getCliente(opc).getNombre() + "?");
+                    System.out.println("Ingrese el id del producto que desea rentar: ");
+                    try {
+                        opc = Integer.parseInt(scan.nextLine());
+                        if (inventario.getProducto(opc) != null) {
+                            if (inventario.getProducto(opc).getUnidades() > 0) {
+                                productoId = opc;
+                                System.out.println("El producto seleccionado es: " + inventario.getProducto(opc));
+                                System.out.println("La fecha de hoy es:" + fecha);
+                                System.out.print("Ingrese cuantos días quiere rentar el producto: ");
+                                try {
+                                    opc = Integer.parseInt(scan.nextLine());
+                                    fechaEntrega = fecha.plusDays(opc);
+                                    System.out.println("La fecha de devolución es: " + fechaEntrega);
+
+                                    //Crea la nueva renta 
+                                    Renta renta = new Renta(fecha, fechaEntrega, dbClientes.getCliente(clienteId), inventario.getProducto(productoId));
+                                    //Disminuye una unidad al producto cuando se realiza una renta
+                                    int unidades = inventario.getProducto(productoId).getUnidades();
+                                    inventario.getProducto(productoId).setUnidades(unidades-1);
+                                    //cuando unidades es igual a cero, el producto ya no esta disponible
+                                    if(inventario.getProducto(productoId).getUnidades()==0){
+                                        inventario.getProducto(productoId).setDisponible(false);
+                                    }
+                                    
+                                    sisRentas.nuevaRenta(renta);
+                                    System.out.println("Renta creada: " + renta);
+                                    menuPrincipal();
+
+                                } catch (Exception e) {
+                                    //error
+                                    System.out.println("Dato invalido");
+                                }
+                            } else {
+                                System.out.println("Ya no hay unidades disponibles de este producto");
+                            }
+
+                        } else {
+                            System.out.println("No existe un producto con ese ID");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Dato invalido");
+                    }
+
+                } else {
+                    System.out.println("No existe cliente con ese ID.");
+                }
+                menuPrincipal();
+                break;
+            case 2:
+                System.out.println("DEVOLUCION");
+                System.out.print("Ingrese el id del cliente: ");
+                try {
+                    //scan.nextLine();
+                    opc = Integer.parseInt(scan.nextLine());
+                    clienteId = opc;
+                } catch (Exception e) {
+                    System.out.println("Dato invalido");
+                    break;
+                }
+                if (dbClientes.getCliente(opc) != null) {
+
+                    if (sisRentas.consultaRentasCliente(opc) > 0) {
+
+                    } else {
+                        System.out.println("El cliente no tiene rentas activas");
+                    }
+
+                } else {
+                    System.out.println("No existe cliente con ese ID.");
+                }
+                menuPrincipal();
+                break;
+            case 3:
+                sisRentas.consultaRentas();
+                menuPrincipal();
+                break;
+            default:
+                break;
+
+        }
 
     }
 
