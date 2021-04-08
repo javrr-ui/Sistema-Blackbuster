@@ -1,5 +1,7 @@
 ## Sistema Blockbuster para la materia de Algoritmos y estructuras de datos
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f0d02058d358407f88c896948430b1f4)](https://app.codacy.com/gh/javrr-ui/Sistema-Blackbuster?utm_source=github.com&utm_medium=referral&utm_content=javrr-ui/Sistema-Blackbuster&utm_campaign=Badge_Grade_Settings)
+
 ![](https://www.code-inspector.com/project/18820/status/svg)
 ![](https://www.code-inspector.com/project/18820/score/svg)
 
