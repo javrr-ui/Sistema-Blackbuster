@@ -1,7 +1,7 @@
 ## Sistema Blockbuster para la materia de Algoritmos y estructuras de datos
 
-![](https://www.code-inspector.com/project/18820/status/svg)
-![](https://www.code-inspector.com/project/18820/score/svg)
+![](https://api.codiga.io/project/18820/score/svg)
+![](https://api.codiga.io/project/18820/status/svg)
 
 ### Características
 
